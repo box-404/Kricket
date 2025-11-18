@@ -1,0 +1,10 @@
+<h1>These are the chats</h1>
+
+<div class="cards">
+    <% @lists.each do |list| %>
+      <div class="card-category mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/274937/pexels-photo-274937.jpeg)">
+        <h2><%= list.name %></h2>
+        <%= link_to "", list_path(list), class: "card-link"  %>
+      </div>
+    <% end %>
+</div>

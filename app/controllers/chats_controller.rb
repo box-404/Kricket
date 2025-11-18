@@ -9,7 +9,7 @@ class ChatsController < ApplicationController
   end
 
   def index
-
+    @chats = Chat.all
   end
 
   def show
