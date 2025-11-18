@@ -10,7 +10,6 @@ class ChatsController < ApplicationController
 
   def index
     @chats = Chat.all
-    # @summary = Me
   end
 
   def show
