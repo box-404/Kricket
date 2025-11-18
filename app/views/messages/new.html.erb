@@ -1,0 +1,7 @@
+<h1>Hello!</h1>
+<div class="id_message_container">
+  <%= simple_form_for [@chat, @message] do |f| %>
+    <%=f.input :content, placeholder: "Type your topic here" %>
+    <%= f.button :submit, 'Tell Kricket', class: 'btn btn-primary' %>
+  <% end %>
+</div>

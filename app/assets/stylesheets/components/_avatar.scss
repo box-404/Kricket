@@ -1,20 +1,24 @@
+// BASE AVATAR
 .avatar {
-  width: 40px;
+  display: inline-block;
   border-radius: 50%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
 }
-.avatar-large {
+
+// SIZE VARIANTS
+.avatar--sm {
+  width: 32px;
+}
+
+.avatar--md {
+  width: 40px;
+}
+
+.avatar--lg {
   width: 56px;
-  border-radius: 50%;
 }
-.avatar-bordered {
-  width: 40px;
-  border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
-}
-.avatar-square {
-  width: 40px;
-  border-radius: 0px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
+
+.avatar--xl {
+  width: 80px;
 }

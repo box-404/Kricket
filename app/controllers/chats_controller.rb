@@ -1,7 +1,7 @@
 class ChatsController < ApplicationController
 
   def new
-
+    @chat = Chat.new
   end
 
   def create
@@ -9,11 +9,12 @@ class ChatsController < ApplicationController
   end
 
   def index
-
+    @chats = Chat.all
   end
 
   def show
-
+  @chat = Chat.find(params[:id])
+  @message = Message.new
   end
 
   private

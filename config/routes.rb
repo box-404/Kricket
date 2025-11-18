@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   root to: "chats#new"
 
   resources :chats, only: [:index, :show, :new, :create] do
-    resources :messages, only: [:create]
+    resources :messages, only: [:create, :new]
   end
 end
