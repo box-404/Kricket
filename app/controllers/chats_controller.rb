@@ -15,4 +15,10 @@ class ChatsController < ApplicationController
   def show
 
   end
+
+  private
+
+  def chat_params
+    params.require(:chat).permit(:title, :summary, :temperature)
+  end
 end
