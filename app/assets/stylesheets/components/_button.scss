@@ -1,0 +1,26 @@
+/* go-button */
+.go-button-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 16px 0;
+}
+
+.go-button {
+  min-width: 50px;
+  height: 30px;
+  border: none;
+  border-radius: 24px;
+  padding: 0 24px;
+  background: #212529;
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  transition: 0.2s;
+}
+
+.go-button:hover {
+  background: #000;
+}
