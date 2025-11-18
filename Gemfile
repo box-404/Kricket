@@ -77,3 +77,4 @@ gem "devise"
 gem "faker"
 gem "ruby_llm", "~> 1.6.4"
 gem 'dotenv-rails'
+gem "cloudinary"
