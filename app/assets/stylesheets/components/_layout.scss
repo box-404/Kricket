@@ -1,0 +1,67 @@
+/* --- WRAPPER --- */
+.screen-wrapper {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
+.kricket-page {
+  width: 390px;
+  min-height: 844px;
+  background: #eeeeee;
+  border-radius: 32px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+  padding: 12px 16px 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* --- HERO TEXT --- */
+.hero-text {
+  text-align: center;
+  margin-top: 8px;
+
+  &__title {
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 700;
+  }
+}
+
+/* --- CENTER INPUT + GO + TOGGLE --- */
+.input-section,
+.interaction-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* --- SPICY SLIDER --- */
+.spice {
+  text-align: center;
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+}
+
+/* --- GO BUTTON CENTER --- */
+.go-button-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* --- TOGGLE CENTER --- */
+.mode-toggle-wrapper {
+  display: flex;
+  justify-content: center;
+}
