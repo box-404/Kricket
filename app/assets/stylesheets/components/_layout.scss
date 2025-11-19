@@ -204,3 +204,27 @@ html, body {
     background: #2F3E39;
   }
 }
+
+// history page
+.kricket-page-history {
+  background: $background-white;
+  color: $text-secondary;
+}
+
+.kricket-page-history .navbar-title,
+.kricket-page-history .navbar-back i,
+.kricket-page-history .navbar-right-icon i {
+  color: $navbar-text;
+}
+
+.history-item {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover,
+  &:active,
+  &:visited {
+    text-decoration: none;
+    color: inherit;
+  }
+}
