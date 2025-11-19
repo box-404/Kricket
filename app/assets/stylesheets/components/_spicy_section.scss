@@ -1,43 +1,44 @@
 .spice {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
+
+  .spice_label {
+    font-size: 15px;
+    color: #ffffff;
+    margin-bottom: 2px;
+  }
+
 }
 
-.spice__label {
-  font-size: 12px;
-  color: #777;
-  margin-bottom: 8px;
-}
-
-.spice__row {
+.spice_row {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
 
-.spice__pepper-left {
+.spice_pepper-left {
   font-size: 16px;
 }
 
-/* ตัว slider จริง */
+// slider
 .spice-slider {
   width: 190px;
-  accent-color: #ff6b6b;   /* << สีพริกเผ็ด ๆ */
+  accent-color: #ff6b6b;
 }
 
-/* พริกด้านขวา */
-.spice__pepper-level {
+// right
+.spice_pepper-level {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.spice__pepper-level .pepper {
+.spice_pepper-level .pepper {
   font-size: 16px;
   opacity: 0.25;
 }
 
-.spice__pepper-level .pepper.is-active {
+.spice_pepper-level .pepper.is-active {
   opacity: 1;
 }

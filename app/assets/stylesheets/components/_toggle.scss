@@ -11,7 +11,7 @@
   box-shadow: 0 0 0 1px #dee2e6;
 }
 
-.mode-toggle__btn {
+.mode-toggle_btn {
   min-width: 100px;
   padding: 0 30px;
   height: 30px;
@@ -24,18 +24,18 @@
   color: #495057;
 }
 
-.mode-toggle__btn--left {
+.mode-toggle_btn-left {
   border-top-left-radius: 24px;
   border-bottom-left-radius: 24px;
 }
 
-.mode-toggle__btn--right {
+.mode-toggle_btn-right {
   border-top-right-radius: 24px;
   border-bottom-right-radius: 24px;
 }
 
-.mode-toggle__btn--active {
-  background: #212529;
+.mode-toggle_btn-active {
+  background: $button-secondary;
   color: #ffffff;
   box-shadow: inset 0 0 0 1px #212529;
 }

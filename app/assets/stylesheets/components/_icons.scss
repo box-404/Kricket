@@ -1,0 +1,41 @@
+// icon user
+.navbar-right-icon {
+  color: $icons;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// icon input (the mic one)
+.input_icon-right i {
+  color: $icons;
+}
+
+// size of hamberger and user icon to the the same
+.navbar-toggler,
+.navbar-right-icon {
+  width: 48px;
+  height: 48px;
+}
+
+// Hamburger icon
+.navbar-toggler {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:focus,
+  &:active,
+  &:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.navbar-toggler-icon {
+  filter: invert(100%);
+  transform: scale(1.5);
+}
