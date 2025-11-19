@@ -1,15 +1,88 @@
-<h1>Chat</h1>
-<div class="messages">
-  <% @chat.messages.order(created_at: :asc).each do |message| %>
-    <div class="message <%= message.role %>">
-      <strong><%= message.role.capitalize %>:</strong>
-      <p><%= message.content %></p>
+<div class="screen-wrapper">
+  <div class="kricket-page">
+    <!-- Status bar -->
+    <div class="status-bar">
+      <div class="status-bar__icons">
+        <span class="icon"></span>
+        <span class="icon"></span>
+        <span class="icon"></span>
+      </div>
     </div>
-  <% end %>
-</div>
-<div class="id_message_container">
-  <%= simple_form_for [@chat, @message] do |f| %>
-    <%=f.input :content, placeholder: "Type your topic here" %>
-    <%= f.button :submit, 'Tell Kricket', class: 'btn btn-primary' %>
-  <% end %>
-</div>
+    <!-- Top nav -->
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+      <div class="container-fluid navbar-mobile">
+        <!-- LEFT: hamburger -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- CENTER: brand name -->
+        <div class="navbar-title">Kricket</div>
+        <!-- RIGHT: icon -->
+        <div class="navbar-right-icon">
+          <i class="fa-regular fa-user" type="button"></i>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">History</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Account</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Spiciness slider -->
+    <section class="spice">
+      <div class="spice__label">Choose spiciness level</div>
+      <div class="spice__row">
+        <span class="spice__pepper-left">🌶️</span>
+        <%= simple_form_for(@chat, html: {data: {controller: "temperature"}}) do |f| %>
+          <input
+            name="chat[temperature]"
+            type="range"
+            class="spice-slider"
+            min="0"
+            max="2"
+            step="0.1"
+            value="<%= @chat.temperature %>"
+            data-action="change->temperature#update"
+            />
+          <% end %>
+          <div class="spice__pepper-level" data-level="1">
+            <span class="pepper" data-index="1">🌶️</span>
+            <span class="pepper" data-index="2">🌶️</span>
+          </div>
+        </div>
+      </section>
+      <!-- Record Section of the Page  -->
+      <div class="div" data-controller="record" data-id="<%= @chat.id %>">
+        <button id="record" data-record-target="record" data-action="click-> record#startRecord">Record</button>
+        <button id="snapshot" data-action="click-> record#collectSnapshot">Snapshot</button>
+        <button id="stop" data-action="click-> record#stopRecord">Stop</button>
+      </div>
+      <!-- AI message block -->
+      <div id="assistant_message">
+        <%= render "messages/message", message: @last_assistant_msg %>
+      </div>
+      <!-- button block -->
+      <div class="interaction-block">
+        <div class="go-button-wrapper">
+          <button class="go-button"><i class="fa-solid fa-play"></i>  Go  </button>
+        </div>
+        <div class="mode-toggle-wrapper">
+          <div class="mode-toggle">
+            <button class="mode-toggle__btn mode-toggle__btn--left mode-toggle__btn--active" data-mode="voice">
+              Voice
+            </button>
+            <button class="mode-toggle__btn mode-toggle__btn--right" data-mode="text">
+              Text
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- .kricket-page -->
+  </div>
+  <!-- .screen-wrapper -->

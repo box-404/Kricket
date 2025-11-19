@@ -12,9 +12,15 @@ class ChatsController < ApplicationController
     @chats = Chat.all
   end
 
+  def update
+    @chat = Chat.find(params[:id])
+    @chat.update(temperature: params[:chat][:temperature])
+  end
+
   def show
-  @chat = Chat.find(params[:id])
-  @message = Message.new
+    @chat = Chat.find(params[:id])
+    @message = Message.new
+    @last_assistant_msg = @chat.messages.where(role: "assistant").order(created_at: :asc).last
   end
 
   private

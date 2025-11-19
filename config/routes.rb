@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root to: "chats#new"
 
-  resources :chats, only: [:index, :show, :new, :create] do
+  resources :chats, only: [:index, :show, :new, :create, :update] do
     resources :messages, only: [:create, :new]
   end
 end
