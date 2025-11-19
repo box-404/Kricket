@@ -39,7 +39,7 @@
 
       <!-- Spiciness slider -->
       <section class="spice">
-        <div class="spice_label">Choose spiciness level</div>
+        <div class="spice_label"></div>
 
         <div class="spice_row">
           <span class="spice_pepper-left">🌶️</span>
@@ -58,43 +58,56 @@
             <span class="pepper" data-index="2">🌶️</span>
           </div>
         </div>
+
+        <p class="text-primary" style="font-size: 0.8rem;">
+          Click here to select how weird <br> Kricket’s responses are
+        </p>
       </section>
 
       <!-- Main text -->
       <section class="main-text">
-        <h1 class="main-text_title">
-          Type a topic to start a<br>
-          conversation with Kricket
+        <h1 class="text-primary" style="font-size: 1.6rem;">
+          Type a topic to start a conversation with Kricket
         </h1>
       </section>
 
-      <!-- Input -->
-      <section class="input-section">
-        <div class="input">
-          <span class="input_icon"></span>
-          <input type="text" placeholder="🔍 Type here">
-          <span class="input_icon input_icon-right">
-            <i class="fa-solid fa-microphone"></i>
-          </span>
-        </div>
+      <section class="main-text">
+        <h1 class="text-primary" style="font-size: 1.6rem;">
+          Activate Kricket. When the convo dips, it serves you something interesting to keep the vibe alive!
+        </h1>
       </section>
 
       <!-- button block -->
       <div class="interaction-block">
+        <p class="text-primary text-center" style="font-size: 0.8rem;">
+          No silence survives on my watch! <br>
+          Press GO to start your Kricket conversation
+        </p>
+
         <div class="go-button-wrapper">
-          <button class="go-button"><i class="fa-solid fa-play"></i>  Go  </button>
+          <button class="go-button success text-center" style="font-size: 1.1rem;">
+            <i class="fa-solid fa-play"></i> GO
+          </button>
         </div>
 
-        <div class="mode-toggle-wrapper">
-          <div class="mode-toggle">
-            <button class="mode-toggle_btn mode-toggle_btn-left mode-toggle_btn-active" data-mode="voice">
-              Voice
-            </button>
-            <button class="mode-toggle_btn mode-toggle_btn-right" data-mode="text">
-              Text
-            </button>
+        <!-- Bottom section with tighter spacing -->
+        <div style="text-align: center;">
+          <p class="text-primary" style="font-size: 0.6rem; margin-bottom: 6px;">
+            Click here for Kricket to reply with voice or text if you’re in silent mode
+          </p>
+
+          <div class="mode-toggle-wrapper">
+            <div class="mode-toggle">
+              <button class="mode-toggle_btn mode-toggle_btn-left mode-toggle_btn-active" data-mode="voice">
+                Voice
+              </button>
+              <button class="mode-toggle_btn mode-toggle_btn-right" data-mode="text">
+                Text
+              </button>
+            </div>
           </div>
         </div>
+
       </div>
 
     </div>
