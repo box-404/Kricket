@@ -16,9 +16,9 @@
         <div class="container-fluid navbar-mobile">
 
           <!-- LEFT: hamburger -->
-          <button class="navbar-toggler icons" type="button">
+          <%= link_to chats_path, class: "navbar-toggler" do %>
             <span class="navbar-toggler-icon"></span>
-          </button>
+          <% end %>
 
           <!-- CENTER: brand name -->
           <div class="navbar-title">Kricket</div>

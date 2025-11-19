@@ -26,6 +26,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: scale(1.5);
 
   &:focus,
   &:active,
@@ -35,7 +36,9 @@
   }
 }
 
-.navbar-toggler-icon {
-  filter: invert(100%);
-  transform: scale(1.5);
+.navbar-back {
+  color: white;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
 }
