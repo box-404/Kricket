@@ -7,3 +7,6 @@ application.debug = false
 window.Stimulus   = application
 
 export { application }
+
+import LiquidGlassController from "./liquid_glass_controller"
+application.register("liquid-glass", LiquidGlassController)
