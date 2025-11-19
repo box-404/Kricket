@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Kricket UI Kit Demo</title>
-</head>
-<body>
   <div class="screen-wrapper">
+    <div class="app-background"></div>
     <div class="kricket-page">
 
       <!-- Status bar -->
@@ -22,7 +16,7 @@
         <div class="container-fluid navbar-mobile">
 
           <!-- LEFT: hamburger -->
-          <button class="navbar-toggler" type="button">
+          <button class="navbar-toggler icons" type="button">
             <span class="navbar-toggler-icon"></span>
           </button>
 
@@ -65,26 +59,38 @@
       </section>
 
       <!-- Main text -->
-      <section class="main-text">
-        <h1 class="text-primary" style="font-size: 1.6rem;">
-          Type a topic to start a conversation with Kricket
-        </h1>
+      <section class="glass-container">
+        <div class="glass-blob" data-controller="liquid-glass">
+          <canvas data-liquid-glass-target="canvas"></canvas>
+        </div>
+
+        <div class="glass-content">
+          <h1 class="text-primary" style="font-size: 1rem;">
+            Type a topic to start a conversation with Kricket
+          </h1>
+        </div>
       </section>
 
-      <section class="main-text">
-        <h1 class="text-primary" style="font-size: 1.6rem;">
-          Activate Kricket. When the convo dips, it serves you something interesting to keep the vibe alive!
-        </h1>
+      <section class="glass-container">
+        <div class="glass-blob" data-controller="liquid-glass">
+          <canvas data-liquid-glass-target="canvas"></canvas>
+        </div>
+
+        <div class="glass-content">
+          <h1 class="text-primary" style="font-size: 0.8rem;">
+            Activate Kricket. When the convo dips, it serves you something interesting to keep the vibe alive!
+          </h1>
+        </div>
       </section>
 
       <!-- button block -->
       <div class="interaction-block">
-        <p class="text-primary text-center" style="font-size: 0.8rem;">
+
+        <div style="text-align: center;">
+        <p class="text-primary" style="font-size: 0.6rem; margin-bottom: 6px;">
           No silence survives on my watch! <br>
           Press GO to start your Kricket conversation
         </p>
-
-        <div class="go-button-wrapper">
           <button class="go-button success text-center" style="font-size: 1.1rem;">
             <i class="fa-solid fa-play"></i> GO
           </button>
@@ -112,5 +118,3 @@
 
     </div>
   </div>
-</body>
-</html>
