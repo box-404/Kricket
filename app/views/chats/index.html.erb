@@ -1,0 +1,29 @@
+<h1>These are the chats</h1>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <nav>
+          <%= link_to "Home", root_path, class: "nav-link" %>
+        </nav>
+    </ul>
+  </div>
+</nav>
+
+
+
+<div class="cards">
+    <% @chats.each do |chat| %>
+      <div class="card-category mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+        <h2><%= chat.title %></h2>
+        <p><%= chat.summary %></p>
+        <%= link_to "", chat_path(chat), class: "card-link"  %>
+      </div>
+    <% end %>
+</div>
