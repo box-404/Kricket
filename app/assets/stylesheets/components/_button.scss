@@ -1,4 +1,4 @@
-/* go-button */
+//go-button
 .go-button-wrapper {
   width: 100%;
   display: flex;
@@ -12,8 +12,8 @@
   border: none;
   border-radius: 24px;
   padding: 0 24px;
-  background: #212529;
-  color: white;
+  background: $button-primary;
+  color: rgb(0, 0, 0);
   font-weight: 600;
   font-size: 0.95rem;
   cursor: pointer;
@@ -22,5 +22,5 @@
 }
 
 .go-button:hover {
-  background: #000;
+  background: #ffffff;
 }

@@ -18,11 +18,11 @@
       </div>
 
       <!-- Top nav -->
-      <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+      <div class="navbar navbar-light navbar-lewagon">
         <div class="container-fluid navbar-mobile">
 
           <!-- LEFT: hamburger -->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+          <button class="navbar-toggler" type="button">
             <span class="navbar-toggler-icon"></span>
           </button>
 
@@ -35,25 +35,14 @@
           </div>
 
         </div>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">History</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Account</a>
-            </li>
-          </ul>
-        </div>
       </div>
 
       <!-- Spiciness slider -->
       <section class="spice">
-        <div class="spice__label">Choose spiciness level</div>
+        <div class="spice_label">Choose spiciness level</div>
 
-        <div class="spice__row">
-          <span class="spice__pepper-left">🌶️</span>
+        <div class="spice_row">
+          <span class="spice_pepper-left">🌶️</span>
 
           <input
             type="range"
@@ -64,7 +53,7 @@
             value="1"
           />
 
-          <div class="spice__pepper-level" data-level="1">
+          <div class="spice_pepper-level" data-level="1">
             <span class="pepper" data-index="1">🌶️</span>
             <span class="pepper" data-index="2">🌶️</span>
           </div>
@@ -72,8 +61,8 @@
       </section>
 
       <!-- Main text -->
-      <section class="hero-text">
-        <h1 class="hero-text__title">
+      <section class="main-text">
+        <h1 class="main-text_title">
           Type a topic to start a<br>
           conversation with Kricket
         </h1>
@@ -82,9 +71,9 @@
       <!-- Input -->
       <section class="input-section">
         <div class="input">
-          <span class="input__icon"></span>
+          <span class="input_icon"></span>
           <input type="text" placeholder="🔍 Type here">
-          <span class="input__icon input__icon--right">
+          <span class="input_icon input_icon-right">
             <i class="fa-solid fa-microphone"></i>
           </span>
         </div>
@@ -98,17 +87,17 @@
 
         <div class="mode-toggle-wrapper">
           <div class="mode-toggle">
-            <button class="mode-toggle__btn mode-toggle__btn--left mode-toggle__btn--active" data-mode="voice">
+            <button class="mode-toggle_btn mode-toggle_btn-left mode-toggle_btn-active" data-mode="voice">
               Voice
             </button>
-            <button class="mode-toggle__btn mode-toggle__btn--right" data-mode="text">
+            <button class="mode-toggle_btn mode-toggle_btn-right" data-mode="text">
               Text
             </button>
           </div>
         </div>
       </div>
 
-    </div> <!-- .kricket-page -->
-  </div>   <!-- .screen-wrapper -->
+    </div>
+  </div>
 </body>
 </html>
