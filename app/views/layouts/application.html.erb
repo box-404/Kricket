@@ -11,8 +11,50 @@
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
     <%= render 'shared/ios_pwa_links' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   </head>
   <body>
     <%= yield %>
+    <script>
+      window.addEventListener("load", () => {
+        liquidGL({
+        snapshot: ".kricket-page",
+        target: ".glass-blob",
+
+        resolution: 1.8,
+        pixelRatio: 1,
+        frost: 0.018,
+        refraction: 0.18,
+        magnify: 1,
+
+        bevelWidth: 0.057,
+        bevelDepth: 0.119,
+        roundness: 0.25,
+
+        aberration: 0.006,
+        aberrationStrength: 0.4,
+        dispersion: 0.15,
+
+        lensStrength: 0.22,
+        lensDistortion: 0.12,
+
+        noiseIntensity: 0.18,
+        noiseSpeed: 0.45,
+        noiseScale: 0.8,
+
+        wobble: 0.35,
+        speed: 1.25,
+
+        shadow: true,
+        specular: true,
+        tilt: false,
+        tiltFactor: 10,
+        specularSharpness: 0.6,
+        highlight: 1.2,
+
+        reveal: "fade"
+      });
+      });
+    </script>
   </body>
 </html>
