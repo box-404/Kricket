@@ -1,0 +1,7 @@
+<%# # find the messages div
+      # insert the last messages into that div %>
+<%# turbo_stream.verb 'id_of_location' %>
+<%= turbo_stream.update "assistant_message" do %>
+  <%# insert an HTML partial %>
+  <%= render 'message', message: @kricket_message %>
+<% end %>
