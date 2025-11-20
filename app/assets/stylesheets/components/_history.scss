@@ -1,0 +1,107 @@
+
+// history page
+
+// list scroll
+.history-list {
+  flex: 1 1 auto;
+  padding: 16px 16px 28px;
+  overflow-y: auto;
+}
+
+// Each history item
+.history-item {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 22px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.06);
+  color: inherit;
+  transition: transform 0.12s ease-out, box-shadow 0.12s ease-out;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  }
+}
+
+/* LEFT: play circle */
+.history-item__play {
+  flex: 0 0 auto;
+  margin-right: 10px;
+}
+
+.history-play-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.history-play-circle i {
+  font-size: 18px;
+}
+
+/* MIDDLE: text */
+.history-item__text {
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.history-item__scroll {
+  max-height: 40px;
+  overflow: hidden;
+}
+
+.history-title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 14px;
+  color: #111;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.history-message {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* RIGHT: time + spice */
+.history-item__meta {
+  flex: 0 0 auto;
+  text-align: right;
+  margin-left: 10px;
+}
+
+.history-time {
+  margin: 0;        // หรือ 2px 0 0 ก็ได้
+  font-size: 11px;
+  line-height: 1.3;
+  color: #bbb;
+}
+
+
+.history-spice {
+  margin: 4px 0 0;
+  font-size: 10px;
+}

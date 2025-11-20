@@ -2,77 +2,73 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Kricket UI Kit Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>viewpoint</title>
 </head>
 <body>
-  <div class="screen-wrapper">
-  <div class="kricket-page kricket-page-history">
+    <div class="screen-wrapper">
+      <div class="kricket-page kricket-page-history">
 
-    <!-- Status bar -->
-    <div class="status-bar">
-      <div class="status-bar__icons">
-        <span class="icon"></span>
-        <span class="icon"></span>
-        <span class="icon"></span>
-      </div>
-    </div>
-
-    <!-- Top nav -->
-    <div class="navbar navbar-light navbar-lewagon">
-      <div class="container-fluid navbar-mobile">
-
-        <!-- LEFT: back -->
-        <%= link_to root_path, class: "navbar-back" do %>
-          <i class="fa-solid fa-angle-left"></i>
-        <% end %>
-
-        <!-- CENTER: title -->
-        <div class="navbar-title">Kricket History</div>
-
-        <!-- RIGHT: menu icon -->
-        <div class="navbar-right-icon">
-          <i class="fa-regular fa-user"></i>
+       <!-- Status bar -->
+        <div class="status-bar">
+          <div class="status-bar__icons">
+            <span class="icon"></span>
+            <span class="icon"></span>
+            <span class="icon"></span>
+          </div>
         </div>
+      <!-- Top Navbar -->
+      <div class="navbar navbar-light navbar-lewagon">
+        <div class="container-fluid navbar-mobile">
 
+          <!-- LEFT: back -->
+          <%= link_to root_path, class: "navbar-toggler" do %>
+            <i class="fa-solid fa-house" style="color: black;"></i>
+          <% end %>
 
+          <!-- CENTER: title -->
+          <div class="navbar-title ">Kricket History</div>
+
+          <!-- RIGHT: user icon -->
+          <div class="navbar-right-icon" type="button">
+            <i class="fa-regular fa-user" style="color: black;"></i>
+          </div>
+
+              <!-- History list -->
+          <div class="container">
+            <div class="history-list mt-4">
+              <% @chats.each do |chat| %>
+                <%= link_to chat_path(chat), class: "history-item" do %>
+
+                  <!-- LEFT: play icon -->
+                  <div class="history-item__play">
+                    <div class="history-play-circle">
+                      <i class="fa-regular fa-circle-play"></i>
+                    </div>
+                  </div>
+
+                  <!-- MIDDLE: scrollable text -->
+                  <div class="history-item__text">
+                    <div class="history-item__scroll">
+                      <p class="history-title"><%= chat.title %></p>
+                      <p class="history-message"><%= chat.summary %></p>
+                    </div>
+                  </div>
+
+                  <!-- RIGHT: time + spice -->
+                  <div class="history-item__meta">
+                    <p class="history-time"><%= chat.created_at.strftime("%-l:%M %p") %></p>
+                    <p class="history-spice">🌶️🌶️🌶️</p>
+                  </div>
+
+                <% end %>
+              <% end %>
+            </div> <!-- /history-list -->
+          </div>
+        </div>
       </div>
+
     </div>
-
-    <!-- History list -->
-    <div class="history-list">
-      <% @chats.each do |chat| %>
-        <%= link_to chat_path(chat), class: "history-item" do %>
-
-          <!-- LEFT: play icon -->
-          <div class="history-item__play">
-            <div class="history-play-circle">
-              <i class="fa-solid fa-circle-play"></i>
-            </div>
-          </div>
-
-          <!-- MIDDLE: title + subtitle -->
-          <div class="history-item__text">
-            <div class="history-title">
-              <%= chat.title %>
-            </div>
-            <div class="history-subtitle">
-              <%= chat.summary %>
-            </div>
-          </div>
-
-          <!-- RIGHT: time + peppers -->
-          <div class="history-item__meta">
-            <div class="history-time">
-              <%= chat.created_at.strftime("%-l:%M %p") %>
-            </div>
-            <div class="history-spice">
-              🌶️🌶️🌶️
-            </div>
-          </div>
-
-        <% end %>
-      <% end %>
-    </div>
-
   </div>
-</div>
+</body>
+</html>

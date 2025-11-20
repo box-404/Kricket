@@ -79,16 +79,19 @@
 
       <!-- button block -->
       <div class="interaction-block">
-
         <div style="text-align: center;">
-        <p class="text-primary" style="font-size: 0.6rem; margin-bottom: 6px;">
-          No silence survives on my watch! <br>
-          Press GO to start your Kricket conversation
-        </p>
-          <button class="go-button success text-center" style="font-size: 1.1rem;">
+          <p class="text-primary" style="font-size: 0.6rem; margin-bottom: 6px;">
+            No silence survives on my watch! <br>
+            Press GO to start your Kricket conversation
+          </p>
+
+          <%= link_to chat_path(Chat.last),
+                      class: "go-button success text-center",
+                      style: "font-size: 1.1rem; display: inline-block; text-decoration: none;" do %>
             <i class="fa-solid fa-play"></i> GO
-          </button>
+          <% end %>
         </div>
+      </div>
 
         <!-- Bottom section with tighter spacing -->
         <div style="text-align: center;">
