@@ -1,27 +1,35 @@
-.glass-container {
-  position: relative;
-  width: 100%;
-  max-width: 325px;
-  margin: 1.4rem auto;
+/* MAIN HOMEPAGE GLASS */
+.glass-wrapper {
+  position: fixed;
+  top: 53%;  /* adjust to taste */
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 86%;
+  max-width: 360px;
+
   border-radius: 32px;
+  overflow: hidden;
+
+  pointer-events: none; /* non-interactive glass */
+  z-index: 10;
 }
 
-/* NO background, NO blur, NOTHING. */
-.glass-blob {
+/* WebGL canvas for liquidGL */
+.glass-wrapper .glass-blob {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  border-radius: 10px;
-  overflow: hidden;
-  z-index: 1;
+  border-radius: 12px;
   background: transparent !important;
+  // z-index: 1;
 }
 
-.glass-content {
+/* Content inside the glass */
+.glass-wrapper .glass-content {
   position: relative;
-  z-index: 10;
-  padding: 1.6rem 1.2rem;
+  z-index: 2;
+  padding: 2rem 1.4rem;
   text-align: center;
-  border-radius: 50px;
 }

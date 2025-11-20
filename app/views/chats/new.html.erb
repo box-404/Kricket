@@ -1,15 +1,4 @@
   <div class="screen-wrapper">
-    <div class="app-background"></div>
-    <div class="kricket-page">
-
-      <!-- Status bar -->
-      <div class="status-bar">
-        <div class="status-bar__icons">
-          <span class="icon"></span>
-          <span class="icon"></span>
-          <span class="icon"></span>
-        </div>
-      </div>
 
       <!-- Top nav -->
       <div class="navbar navbar-light navbar-lewagon">
@@ -30,7 +19,6 @@
 
         </div>
       </div>
-
       <!-- Spiciness slider -->
       <section class="spice">
         <div class="spice_label"></div>
@@ -59,26 +47,19 @@
       </section>
 
       <!-- Main text -->
-      <section class="glass-container">
+      <div class="glass-wrapper">
         <canvas class="glass-blob"></canvas>
 
         <div class="glass-content">
           <h1 class="text-primary" style="font-size: 1.4rem;">Type a topic to start a conversation with Kricket</h1>
-        </div>
-      </section>
 
-      <section class="glass-container">
-        <canvas class="glass-blob"></canvas>
-
-        <div class="glass-content">
           <h1 class="text-primary" style="font-size: 1.4rem;">
             Activate Kricket. When the convo dips, it serves you something interesting to keep the vibe alive!
           </h1>
         </div>
-      </section>
+      </div>
 
       <!-- button block -->
-      <div class="interaction-block">
         <div style="text-align: center;">
           <p class="text-primary" style="font-size: 0.6rem; margin-bottom: 6px;">
             No silence survives on my watch! <br>
@@ -91,27 +72,4 @@
             <i class="fa-solid fa-play"></i> GO
           <% end %>
         </div>
-      </div>
-
-        <!-- Bottom section with tighter spacing -->
-        <div style="text-align: center;">
-          <p class="text-primary" style="font-size: 0.6rem; margin-bottom: 6px;">
-            Click here for Kricket to reply with voice or text if you’re in silent mode
-          </p>
-
-          <div class="mode-toggle-wrapper">
-            <div class="mode-toggle">
-              <button class="mode-toggle_btn mode-toggle_btn-left mode-toggle_btn-active" data-mode="voice">
-                Voice
-              </button>
-              <button class="mode-toggle_btn mode-toggle_btn-right" data-mode="text">
-                Text
-              </button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
   </div>
