@@ -5,7 +5,9 @@ export default class extends Controller {
   static targets = ["message"]
 
   connect() {
+    setTimeout(() => {
     this.speak()
+  }, 2000)
   }
 
   speak() {
@@ -19,7 +21,7 @@ export default class extends Controller {
 
       // Optional: Select a specific voice
       const voices = speechSynthesis.getVoices()
-      // utterance.voice = voices.find(voice => voice.name === 'Google US English')
+      // utterance.voice = voices.find(voice => voice.name === 'Eddy (English (United States))')
 
       speechSynthesis.speak(utterance)
     }

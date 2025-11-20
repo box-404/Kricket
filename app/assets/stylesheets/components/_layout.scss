@@ -1,16 +1,4 @@
-html, body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  background: transparent !important;
-}
 
-
-/* ——————————————————————————————
-   SCREEN WRAPPER (centers phone)
-—————————————————————————————— */
 .screen-wrapper {
   // background: transparent !important;
   background-image: image-url("kricket-bg.png");
@@ -20,157 +8,10 @@ html, body {
   height: 100vh;
 
   display: flex;
-  justify-content: center;
-  align-items: center;
-
-  overflow: hidden;
-}
-
-@media (display-mode: standalone) {
-  .screen-wrapper {
-    background: transparent !important;
-  }
-}
-
-
-/* ——————————————————————————————
-   KRICKET PHONE SHELL
-—————————————————————————————— */
-.kricket-page {
-  width: 360px;
-  height: 100%;
-  max-height: 780px;
-
-  /* Make the page translucent so background shows through */
-  // background: rgba(0, 0, 0, 0.15);
-  // background-image: image-url("kricket-bg.png");
-  // backdrop-filter: blur(50px) saturate(160%);
-  -webkit-backdrop-filter: blur(50px) saturate(160%);
-
-  // border-radius: 36px;
-  // overflow: hidden;
-
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-}
-
-/* ——— GRAIN INSIDE THE PHONE BACKGROUND ——— */
-.kricket-page::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-
-  background: url("https://raw.githubusercontent.com/naughtyduk/liquidGL/master/demo/noise.png");
-  opacity: 0.22; /* adjust 0.15–0.30 depending on taste */
-  mix-blend-mode: soft-light;
-
-  animation: phone-grain-drift 38s ease-in-out infinite;
-  transform: scale(1.5);
-  pointer-events: none;
-}
-
-@keyframes phone-grain-drift {
-  0%   { transform: scale(1.5) translate(0,0); }
-  50%  { transform: scale(1.55) translate(-2%,1%); }
-  100% { transform: scale(1.5) translate(0,0); }
-}
-
-//histpry page
-.kricket-page-history {
-  display: flex;
-  flex-direction: column;     // Make the navbar + list overlay on top and bottom.
-  justify-content: flex-start; // Prevent it from going to the center of the vertical line.
-  height: 100%;
-  background: $background-white;
-  color: $text-secondary;
-  flex: 0 0 auto;
-}
-
-
-/* Movement keyframes */
-@keyframes drift {
-  0%   { transform: scale(1.4) translate(0, 0); }
-  50%  { transform: scale(1.45) translate(-3%, 2%); }
-  100% { transform: scale(1.4) translate(0, 0); }
-}
-
-@keyframes shimmer {
-  0%   { --x: 30%; --y: 40%; opacity: 0.15; }
-  50%  { --x: 60%; --y: 60%; opacity: 0.28; }
-  100% { --x: 30%; --y: 40%; opacity: 0.15; }
-}
-
-
-/* ——————————————————————————————
-   SPICY SECTION
-—————————————————————————————— */
-
-.spice {
-  text-align: center;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.spice__row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-}
-
-
-/* ——————————————————————————————
-   LIQUID GLASS — WebGL SAFE
-—————————————————————————————— */
-.glass-container {
-  position: relative;
-  width: 100%;
-  max-width: 320px;
-  margin: 1.4rem auto;
-
-  border-radius: 32px;
-}
-
-/* WebGL canvas target — MUST BE TRANSPARENT */
-.glass-blob {
-  position: absolute;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-  border-radius: 32px;
-
-  background: transparent !important;
   overflow: hidden;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Text content above glass */
-.glass-content {
-  position: relative;
-  z-index: 10;
-
-  padding: 1.6rem 1.2rem;
-  text-align: center;
-  border-radius: 32px;
-
-  /* text styling */
-  color: white;
-}
-
-
-/* ——————————————————————————————
-   INTERACTION BLOCK
-—————————————————————————————— */
-
-.interaction-block {
-  margin-top: auto;
-  padding-bottom: 1.2rem;
-  text-align: center;
 }
 
 .go-button {
@@ -185,10 +26,6 @@ html, body {
   margin-top: 0.6rem;
 }
 
-
-/* ——————————————————————————————
-   HISTORY SCREEN OVERRIDE
-—————————————————————————————— */
 
 .kricket-page-history {
   background: white;
@@ -211,4 +48,20 @@ html, body {
     text-decoration: none;
     color: inherit;
   }
+}
+
+.page-content {
+  width: 100%;
+  max-width: 360px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 1.8rem;              /* evenly spaced elements */
+  padding-top: 1.5rem;
+  padding-bottom: 2.5rem;  /* gives space for bottom */
+
+  position: relative;
+  z-index: 50;             /* ABOVE the floating glass */
 }
