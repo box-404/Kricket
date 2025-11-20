@@ -1,18 +1,19 @@
 /* MAIN HOMEPAGE GLASS */
 .glass-wrapper {
-  position: fixed;
-  top: 53%;  /* adjust to taste */
-  left: 50%;
-  transform: translate(-50%, -50%);
+  // flex-grow: 1;
+  position: relative;        /* not fixed */
+  width: 90%;
+  max-width: 90%;
 
-  width: 86%;
-  max-width: 360px;
+  margin: 2rem auto;         /* ← centers horizontally */
+  // border-radius: 32px;
+  // overflow: hidden;
 
-  border-radius: 32px;
-  overflow: hidden;
+  display: flex;             /* center the inside */
+  justify-content: center;
+  align-items: center;
 
-  pointer-events: none; /* non-interactive glass */
-  z-index: 10;
+  // z-index: 10;
 }
 
 /* WebGL canvas for liquidGL */
@@ -21,7 +22,7 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  border-radius: 12px;
+  border-radius: 8px;
   background: transparent !important;
   // z-index: 1;
 }
@@ -32,4 +33,9 @@
   z-index: 2;
   padding: 2rem 1.4rem;
   text-align: center;
+}
+
+.glass-content {
+  padding: 1.5rem 1rem;
+  width: 100%;
 }
