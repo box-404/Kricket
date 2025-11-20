@@ -109,7 +109,7 @@ export default class extends Controller {
               }
             } catch (error) {
               console.error("Error sending audio:", error);
-            });
+            };
 
             if (response.ok) {
               console.log("Audio sent successfully");
