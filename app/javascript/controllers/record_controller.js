@@ -74,28 +74,41 @@ export default class extends Controller {
         };
 
         this.mediaRecorder.onstop = async (e) => {
-          const mimeType = this.mediaRecorder.mimeType;
-          console.log("recorder stopped");
+          if (this.isRecording) {
+            const mimeType = this.mediaRecorder.mimeType;
+            console.log("recorder stopped");
 
-          // Change button to show processing
-          this.recordTarget.style.background = "orange";
-          this.recordTarget.textContent = "Processing...";
+            // Change button to show processing
+            this.recordTarget.style.background = "orange";
+            this.recordTarget.textContent = "Processing...";
 
-          const blob = new Blob(chunks, { type: mimeType });
-          chunks = [];
+            const blob = new Blob(chunks, { type: mimeType });
+            chunks = [];
 
-          // Send audio to Rails backend
-          const formData = new FormData();
-          formData.append('audio', blob, 'recording.webm');
+            // Send audio to Rails backend
+            const formData = new FormData();
+            formData.append('audio', blob, 'recording.webm');
 
-          try {
-            const response = await fetch(`/chats/${this.chatId}/messages`, {
-              method: 'POST',
-              body: formData,
-              headers: {
-                'X-CSRF-Token': document.querySelector('[name="csrf-token"]').content,
-                'Accept': 'text/vnd.turbo-stream.html'
+            try {
+              const response = await fetch(`/chats/${this.chatId}/messages`, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                  'X-CSRF-Token': document.querySelector('[name="csrf-token"]').content,
+                  'Accept': 'text/vnd.turbo-stream.html'
+                }
+              });
+
+              if (response.ok) {
+                console.log("Audio sent successfully");
+                // Reload page to show assistant's response
+                const text = await response.text();
+                Turbo.renderStreamMessage(text);
+              } else {
+                console.error("Failed to send audio");
               }
+            } catch (error) {
+              console.error("Error sending audio:", error);
             });
 
             if (response.ok) {
@@ -108,10 +121,7 @@ export default class extends Controller {
             } else {
               console.error("Failed to send audio");
             }
-          } catch (error) {
-            console.error("Error sending audio:", error);
-          }
-          if (!this.isRecording) {
+          } else {
             // Reset button on error
             this.recordTarget.style.background = "";
             this.recordTarget.style.color = "";
