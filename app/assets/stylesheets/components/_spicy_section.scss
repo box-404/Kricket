@@ -1,6 +1,7 @@
 .spice {
   text-align: center;
-  margin-bottom: 20px;
+  flex-direction: column;
+
 
   .spice_label {
     font-size: 15px;
@@ -8,12 +9,10 @@
     margin-bottom: 2px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.25);
   }
-
 }
 
 .spice_row {
   display: flex;
-  align-items: center;
   justify-content: center;
   gap: 10px;
 }
