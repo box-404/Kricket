@@ -1,0 +1,44 @@
+.spinner-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: -10px 0 8px;
+}
+
+.spinner-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.spinner-disc {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: linear-gradient(245deg, #CE4B56, #ffffff);
+  position: relative;
+  animation: spin 4s linear infinite;
+  box-shadow:
+  10px 10px 20px #bebebe,
+  -10px -10px 20px #ffffff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.disc-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow:
+    0 0 4px rgba(255,255,255,0.2),
+    inset 0 0 8px rgba(0,0,0,0.6);
+}
+
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
