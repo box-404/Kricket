@@ -7,10 +7,10 @@
   justify-content: center;
 }
 
-// icon input (the mic one)
-.input_icon-right i {
-  color: $icons;
-}
+// // icon input (the mic one)
+// .input_icon-right i {
+//   color: $icons;
+// }
 
 // size of hamberger and user icon to the the same
 .navbar-toggler,
@@ -34,11 +34,4 @@
     outline: none !important;
     box-shadow: none !important;
   }
-}
-
-.navbar-back {
-  color: white;
-  font-size: 22px;
-  display: flex;
-  justify-content: center;
 }

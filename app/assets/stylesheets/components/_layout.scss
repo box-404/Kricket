@@ -43,18 +43,16 @@ html, body {
 
   /* Make the page translucent so background shows through */
   // background: rgba(0, 0, 0, 0.15);
-  background-image: image-url("kricket-bg.png");
-  backdrop-filter: blur(50px) saturate(160%);
+  // background-image: image-url("kricket-bg.png");
+  // backdrop-filter: blur(50px) saturate(160%);
   -webkit-backdrop-filter: blur(50px) saturate(160%);
 
-  border-radius: 36px;
-  overflow: hidden;
+  // border-radius: 36px;
+  // overflow: hidden;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
   position: relative;
 }
 
@@ -80,6 +78,16 @@ html, body {
   100% { transform: scale(1.5) translate(0,0); }
 }
 
+//histpry page
+.kricket-page-history {
+  display: flex;
+  flex-direction: column;     // Make the navbar + list overlay on top and bottom.
+  justify-content: flex-start; // Prevent it from going to the center of the vertical line.
+  height: 100%;
+  background: $background-white;
+  color: $text-secondary;
+  flex: 0 0 auto;
+}
 
 
 /* Movement keyframes */
