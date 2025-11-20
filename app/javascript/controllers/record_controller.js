@@ -102,6 +102,8 @@ export default class extends Controller {
               console.log("Audio sent successfully");
               // Reload page to show assistant's response
               const text = await response.text();
+              this.playKricket()
+              this.playKricket()
               Turbo.renderStreamMessage(text);
             } else {
               console.error("Failed to send audio");
@@ -138,6 +140,12 @@ export default class extends Controller {
       this.mediaRecorder.stop()
       this.mediaRecorder.start()
     }
+  }
+
+  playKricket() {
+    this.audio = new Audio('/audio/Kricket - One Shot.mp3');
+    this.audio.volume = 0.5; // volume is (0.0 to 1.0)
+    this.audio.play().catch(err => console.error('Error playing audio:', err));
   }
 
 }
