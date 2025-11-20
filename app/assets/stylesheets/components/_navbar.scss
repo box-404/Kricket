@@ -1,46 +1,22 @@
-// .navbar-lewagon {
-//   padding: 10px 12px;
-// }
-
-// .navbar-mobile {
-//   padding-left: 5px;
-//   padding-right: 5px;
-//   justify-content: space-between;
-// }
-
-// // Center title
-// .navbar-title {
-//   position: absolute;
-//   left: 50%;
-//   transform: translateX(-50%);
-//   font-size: 18px;
-//   font-weight: 700;
-//   letter-spacing: 0.12em;
-//   text-transform: uppercase;
-//   white-space: nowrap;
-// }
-
-// .navbar-back i,
-// .navbar-right-icon i {
-//   font-size: 18px;
-//   color: $navbar-text;
-// }
-
-
-.navbar-lewagon {
-  padding: 16px 12px 24px;  // padding-bottom เยอะขึ้น
-  position: relative;
-}
-
+/* Make the navbar a flex container */
 .navbar-mobile {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 
+/* Center text perfectly */
 .navbar-title {
-  position: static;
-  transform: none;
   flex: 1;
   text-align: center;
+}
+
+/* Fix: give left and right icons equal width */
+.navbar-toggler,
+.navbar-right-icon {
+  width: 44px;              // equal width so the title stays centered
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -1,37 +1,37 @@
 // icon user
-.navbar-right-icon {
-  color: $icons;
-  font-size: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-// // icon input (the mic one)
-// .input_icon-right i {
+// .navbar-right-icon {
 //   color: $icons;
+//   font-size: 22px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space;
 // }
 
-// size of hamberger and user icon to the the same
-.navbar-toggler,
-.navbar-right-icon {
-  width: 48px;
-  height: 48px;
-}
+// // // icon input (the mic one)
+// // .input_icon-right i {
+// //   color: $icons;
+// // }
 
-// Hamburger icon
-.navbar-toggler {
-  background: none;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: scale(1.5);
+// // size of hamberger and user icon to the the same
+// .navbar-toggler,
+// .navbar-right-icon {
+//   width: 48px;
+//   height: 48px;
+// }
 
-  &:focus,
-  &:active,
-  &:focus-visible {
-    outline: none !important;
-    box-shadow: none !important;
-  }
-}
+// // Hamburger icon
+// .navbar-toggler {
+//   background: none;
+//   border: none;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   transform: scale(1.5);
+
+//   &:focus,
+//   &:active,
+//   &:focus-visible {
+//     outline: none !important;
+//     box-shadow: none !important;
+//   }
+// }
