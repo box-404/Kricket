@@ -1,45 +1,43 @@
 <div class="screen-wrapper">
-  <!-- Top Navbar -->
-  <div class="navbar navbar-light navbar-lewagon">
-    <div class="container-fluid navbar-mobile">
-      <!-- LEFT: back -->
-      <%= link_to root_path, class: "navbar-toggler" do %>
-        <i class="fa-solid fa-house" style="color: black;"></i>
-      <% end %>
-      <!-- CENTER: title -->
-      <div class="navbar-title ">Kricket History</div>
-      <!-- RIGHT: user icon -->
-      <div class="navbar-right-icon" type="button">
-        <i class="fa-regular fa-user" style="color: black;"></i>
-      </div>
-      <!-- History list -->
-      <div class="history-list mt-4">
-        <% @chats.each do |chat| %>
-          <%= link_to chat_path(chat), class: "history-item" do %>
-            <!-- LEFT: play icon -->
-            <div class="history-item__play">
-              <div class="history-play-circle">
-                <i class="fa-regular fa-circle-play"></i>
-              </div>
-            </div>
-            <!-- MIDDLE: scrollable text -->
-            <div class="history-item__text">
-              <div class="history-item__scroll">
-                <p class="history-title"><%= chat.title %></p>
-                <p class="history-message"><%= chat.summary %></p>
-              </div>
-            </div>
-            <!-- RIGHT: time + spice -->
-            <div class="history-item__meta">
-              <p class="history-time"><%= chat.created_at.strftime("%-l:%M %p") %></p>
-              <p class="history-spice">🌶️🌶️🌶️</p>
-            </div>
-          <% end %>
+  <div class="homepage-layout">
+    <!-- NAVBAR -->
+    <div class="navbar navbar-light navbar-lewagon">
+      <div class="container-fluid navbar-mobile">
+        <%= link_to root_path, class: "navbar-toggler" do %>
+          <i class="fa-solid fa-house" style="color: white;"></i>
         <% end %>
+        <div class="navbar-title" style="color: pink; font-size: 32px;">KRICKET</div>
+        <div class="navbar-right-icon">
+          <i class="fa-regular fa-user" style="color: white;"></i>
+        </div>
       </div>
-      <!-- /history-list -->
+    </div>
+    <!-- GLASS PANEL (NOW PROPERLY CENTERED) -->
+    <div class="glass-wrapper">
+      <canvas class="glass-blob"></canvas>
+      <div class="glass-content">
+        <div class="history-list">
+          <% @chats.each do |chat| %>
+            <%= link_to chat_path(chat), class: "history-item" do %>
+              <div class="history-item__play">
+                <div class="history-play-circle">
+                  <i class="fa-regular fa-circle-play"></i>
+                </div>
+              </div>
+              <div class="history-item__text">
+                <div class="history-item__scroll">
+                  <p class="history-title"><%= chat.title %></p>
+                  <p class="history-message"><%= chat.summary %></p>
+                </div>
+              </div>
+              <div class="history-item__meta">
+                <p class="history-time"><%= chat.created_at.strftime("%-l:%M %p") %></p>
+                <p class="history-spice">🌶️🌶️🌶️</p>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-</div>
 </div>
