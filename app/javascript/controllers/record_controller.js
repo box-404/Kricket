@@ -1,4 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
+import DecibelMeter from 'decibel-meter'
+// const STARTTIME = performance.now()
 
 // Connects to data-controller="record"
 export default class extends Controller {
@@ -10,6 +12,40 @@ export default class extends Controller {
     this.isRecording = false
     this.chatId = this.element.dataset.id
     this.mediaDevicesAvailable = navigator.mediaDevices && navigator.mediaDevices.getUserMedia
+
+    this.silenceDelay = 5000
+    this.dBInterval = 100
+    this.silenceThreshold = 90
+    this.currentDb = -100
+    this.soundHistory = []
+    this.dbMeter = new DecibelMeter
+    this.dbMeter.listenTo(0, (dB, percent, value) => {
+      this.currentDb = dB
+    })
+
+    this.dbMeter.on('connect', ()=>{
+      this.loopCheck = setInterval(() => {
+        this.soundHistory.push(Math.abs(Math.round(this.currentDb)))
+        // console.log(this.soundHistory)
+      }, this.dBInterval);
+
+      setTimeout(() => {
+        this.loopAverage = setInterval(() => {
+          const lastFiveSec = this.soundHistory.slice(-1 * (this.silenceDelay / this.dBInterval)).reduce((accumulator,el)=>accumulator + el)
+          this.averageDb = lastFiveSec / (this.silenceDelay / this.dBInterval)
+          this.isQuiet = this.averageDb > this.silenceThreshold
+          if (this.averageDb < this.silenceThreshold) {
+            console.log("sound detected", this.averageDb)
+          } else {
+            console.log("quiet", this.averageDb)
+            if (this.isRecording) {
+              this.collectSnapshot()
+              this.isQuiet = false
+            }
+          }
+        }, this.silenceDelay);
+      }, this.silenceDelay);
+    })
   }
 
   startRecord() {
@@ -19,6 +55,7 @@ export default class extends Controller {
         this.mediaRecorder = new MediaRecorder(stream);
         this.isRecording = true
         this.mediaRecorder.start();
+        //
         // console.log(mediaRecorder.state);
         // console.log("recorder started");
 
@@ -88,8 +125,9 @@ export default class extends Controller {
   stopRecord() {
     if (this.mediaRecorder && this.mediaRecorder.state === "recording") {
       this.isRecording = false
-      // this.mediaRecorder.stop();
+      this.mediaRecorder.stop();
       this.mediaRecorder.stream.getTracks().forEach(track => track.stop());
+
       // console.log(this.mediaRecorder.state);
       // console.log("recorder stopped");
     }
@@ -101,4 +139,5 @@ export default class extends Controller {
       this.mediaRecorder.start()
     }
   }
+
 }
