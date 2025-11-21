@@ -38,6 +38,7 @@ export default class extends Controller {
             console.log("sound detected", this.averageDb)
           } else {
             console.log("quiet", this.averageDb)
+            console.log(this.isRecording)
             if (this.isRecording) {
               this.collectSnapshot()
               this.isQuiet = false
@@ -49,6 +50,7 @@ export default class extends Controller {
   }
 
   startRecord() {
+    console.log("recording starting")
     if (!this.mediaDevicesAvailable) return
     navigator.mediaDevices.getUserMedia({ audio: true })
       .then((stream) => {
@@ -140,9 +142,11 @@ export default class extends Controller {
   }
 
   collectSnapshot() {
+    console.log("collect snapshot started")
     if (this.mediaRecorder && this.mediaRecorder.state === "recording") {
       this.mediaRecorder.stop()
       this.mediaRecorder.start()
+      console.log("collect snapshot finished")
     }
   }
 
