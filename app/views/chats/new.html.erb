@@ -8,16 +8,16 @@
           <!-- LEFT: hamburger -->
           <%= link_to chats_path, class: "navbar-toggler" do %>
             <%# <span class="navbar-toggler-icon"></span> %>
-            <i class="fa-solid fa-align-justify fa-lg" style="color: white;"></i>
+            <i class="fa-solid fa-align-justify fa-xl" style="color: white;"></i>
           <% end %>
 
           <!-- CENTER: brand name -->
-          <div class="navbar-title" style="font-size: 2.4rem;">KRICKET</div>
+          <div class="navbar-title" style="font-size: 2.6rem; color: #CE4B56;">KRICKET</div>
 
           <!-- RIGHT: icon -->
 
           <div class="navbar-right-icon">
-            <i class="fa-solid fa-arrow-right-from-bracket fa-lg" style="color: white;"></i>
+            <i class="fa-solid fa-arrow-right-from-bracket fa-xl" style="color: white;"></i>
           </div>
 
         </div>
@@ -44,7 +44,7 @@
           </div>
         </div>
 
-        <p class="text-primary" style="font-size: 0.9rem;">
+        <p class="text-primary" style="font-size: 1rem;">
           Click here to select how weird <br> Kricket’s responses are
         </p>
       </section>
@@ -55,7 +55,7 @@
 
         <div class="glass-content">
           <h1 class="text-primary" style="font-size: 1.4rem;">Type a topic to start a conversation with Kricket</h1>
-
+            <br>
           <h1 class="text-primary" style="font-size: 1.4rem;">
             Activate Kricket. <br> <br> When the convo dips, it serves you something interesting to keep the vibe alive!
           </h1>
@@ -64,14 +64,12 @@
 
       <!-- button block -->
         <div style="text-align: center;">
-          <p class="text-primary" style="font-size: 0.9rem; margin-bottom: 6px;">
+          <p class="text-primary" style="font-size: 1rem; margin-bottom: 6px;">
             No silence survives on my watch! <br>
             Press GO to start your Kricket conversation
           </p>
             <%= simple_form_for @chat do |f| %>
-            <button class="go-button success text-center" style="font-size: 1.1rem; display: inline-block; text-decoration: none;">
-              <i class="fa-solid fa-play"></i> GO
-            </button>
+            <button class="go-button success text-center" style="font-size: 1.8rem; display: inline-block; text-decoration: none;">GO</button>
             <% end %>
         </div>
     </div>
