@@ -29,7 +29,7 @@ export default class extends Controller {
             this.collectSnapshot()
             this.isQuiet = true
           }
-        }, 3000);
+        }, 2000);
       },
       onnxWASMBasePath:
         "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.22.0/dist/",
@@ -150,22 +150,33 @@ export default class extends Controller {
   speak() {
     if('speechSynthesis' in window) {
       this.isSpeaking = true
-      const utterance = new SpeechSynthesisUtterance(this.messageTarget.textContent)
 
-      // Customize voice settings
-      utterance.rate = 1.0  // Speed (0.1 to 10)
-      utterance.pitch = 1.0 // Pitch (0 to 2)
-      utterance.volume = 1.0 // Volume (0 to 1)
+      // Wait for voices to load on mobile
+      const speakText = () => {
+        const utterance = new SpeechSynthesisUtterance(this.messageTarget.textContent)
+        utterance.rate = 1.0
+        utterance.pitch = 1.0
+        utterance.volume = 1.0
 
-      // Optional: Select a specific voice
-      const voices = speechSynthesis.getVoices()
-      // utterance.voice = voices.find(voice => voice.name === 'Eddy (English (United States))')
-      utterance.onend = () => {
-        this.isSpeaking = false
-        console.log("Speaking finished")
+        utterance.onend = () => {
+          this.isSpeaking = false
+          console.log("Speaking finished")
+        }
+
+        utterance.onerror = (event) => {
+          console.error('Speech synthesis error:', event)
+          this.isSpeaking = false
+        }
+
+        speechSynthesis.speak(utterance)
       }
 
-      speechSynthesis.speak(utterance)
+      // Load voices if not ready
+      if (speechSynthesis.getVoices().length === 0) {
+        speechSynthesis.addEventListener('voiceschanged', speakText, { once: true })
+      } else {
+        speakText()
+      }
     }
   }
 
