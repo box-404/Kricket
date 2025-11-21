@@ -10,6 +10,7 @@ export default class extends Controller {
     console.log(this.recordTarget);
 
     this.isRecording = false
+    this.isSpeaking = false
     this.chatId = this.element.dataset.id
     this.mediaDevicesAvailable = navigator.mediaDevices && navigator.mediaDevices.getUserMedia
 
@@ -39,7 +40,7 @@ export default class extends Controller {
           } else {
             console.log("quiet", this.averageDb)
             console.log(this.isRecording)
-            if (this.isRecording) {
+            if (this.isRecording && !this.isSpeaking) {
               this.collectSnapshot()
               this.isQuiet = false
             }
@@ -158,6 +159,7 @@ export default class extends Controller {
 
   speak() {
     if('speechSynthesis' in window) {
+      this.isSpeaking = true
       const utterance = new SpeechSynthesisUtterance(this.messageTarget.textContent)
 
       // Customize voice settings
@@ -168,6 +170,10 @@ export default class extends Controller {
       // Optional: Select a specific voice
       const voices = speechSynthesis.getVoices()
       // utterance.voice = voices.find(voice => voice.name === 'Eddy (English (United States))')
+      utterance.onend = () => {
+        this.isSpeaking = false
+        console.log("Speaking finished")
+      }
 
       speechSynthesis.speak(utterance)
     }
@@ -175,5 +181,6 @@ export default class extends Controller {
 
   stop() {
     speechSynthesis.cancel()
+    this.isSpeaking = false
   }
 }

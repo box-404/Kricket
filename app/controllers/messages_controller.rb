@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
       )
       # temperature = chat.temperature #initialized the temp, need to pass it to the llm
       chat = RubyLLM.chat.with_temperature(@chat.temperature)
-      prompt = "Someone just said: '#{@message.content}'. Reply with a single casual, friendly question to keep the conversation going naturally."
+      prompt = "Someone just said: '#{@message.content}'. Reply with an enthusiastic question that shows you're really into this conversation! Be playful, genuine, and make them want to keep talking. Think: excited friend at a coffee shop, not robot assistant. Do not use any emojis."
       response = chat.ask(prompt)
       @kricket_message = Message.new(
         content: response.content,
