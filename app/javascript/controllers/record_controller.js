@@ -29,7 +29,7 @@ export default class extends Controller {
             this.collectSnapshot()
             this.isQuiet = true
           }
-        }, 3000);
+        }, 2000);
       },
       onnxWASMBasePath:
         "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.22.0/dist/",
