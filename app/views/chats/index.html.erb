@@ -12,32 +12,23 @@
         </div>
       </div>
     </div>
-    <!-- GLASS PANEL (NOW PROPERLY CENTERED) -->
-    <div class="glass-wrapper">
-      <canvas class="glass-blob"></canvas>
-      <div class="glass-content">
-        <div class="history-list">
-          <% @chats.each do |chat| %>
-            <%= link_to chat_path(chat), class: "history-item" do %>
-              <div class="history-item__play">
-                <div class="history-play-circle">
-                  <i class="fa-regular fa-circle-play"></i>
-                </div>
-              </div>
-              <div class="history-item__text">
-                <div class="history-item__scroll">
-                  <p class="history-title"><%= chat.title %></p>
-                  <p class="history-message"><%= chat.summary %></p>
-                </div>
-              </div>
-              <div class="history-item__meta">
-                <p class="history-time"><%= chat.created_at.strftime("%-l:%M %p") %></p>
-                <p class="history-spice">🌶️🌶️🌶️</p>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
+    <div class="history-list">
+      <% @chats.each do |chat| %>
+        <%= link_to chat_path(chat), class: "history-item" do %>
+          <div class="history-item__spice-left">
+            <p class="history-spice" style="font-size: 1rem;">🌶️</p>
+          </div>
+          <div class="history-item__text">
+            <div class="history-item__scroll">
+              <p class="history-title"><%= chat.title %></p>
+              <p class="history-message"><%= chat.summary %></p>
+            </div>
+          </div>
+          <div class="history-item__delete">
+            <i class="fa-regular fa-trash-can" style="font-size: 1.2rem;"></i>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
