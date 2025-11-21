@@ -14,17 +14,19 @@
 .spice_row {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 10px;
 }
 
 .spice_pepper-left {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 // slider
 .spice-slider {
   width: 190px;
   accent-color: #ff6b6b;
+  align-items: center;
   // box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
