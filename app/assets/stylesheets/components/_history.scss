@@ -35,6 +35,23 @@
   }
 }
 
+.history-item__body {
+  flex: 1;
+  min-width: 0;  // 🔥 essential to stop flexbox from overflowing
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.history-item__delete {
+  flex: 0 0 auto;
+  color: #CE4B56;
+  padding: 8px;
+  text-decoration: none;
+}
+
 
 /* MIDDLE: text */
 .history-item__text {
