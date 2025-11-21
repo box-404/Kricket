@@ -4,7 +4,7 @@ import DecibelMeter from 'decibel-meter'
 
 // Connects to data-controller="record"
 export default class extends Controller {
-  static targets = ["record"]
+  static targets = ["record", "message"]
 
   connect() {
     console.log(this.recordTarget);
@@ -103,7 +103,12 @@ export default class extends Controller {
                 console.log("Audio sent successfully");
                 // Reload page to show assistant's response
                 const text = await response.text();
+                this.playKricket()
+                this.playKricket()
                 Turbo.renderStreamMessage(text);
+                setTimeout(() => {
+                  this.speak()
+                }, 100);
               } else {
                 console.error("Failed to send audio");
               }
@@ -111,16 +116,6 @@ export default class extends Controller {
               console.error("Error sending audio:", error);
             };
 
-            if (response.ok) {
-              console.log("Audio sent successfully");
-              // Reload page to show assistant's response
-              const text = await response.text();
-              this.playKricket()
-              this.playKricket()
-              Turbo.renderStreamMessage(text);
-            } else {
-              console.error("Failed to send audio");
-            }
           } else {
             // Reset button on error
             this.recordTarget.style.background = "";
@@ -139,7 +134,6 @@ export default class extends Controller {
       this.isRecording = false
       this.mediaRecorder.stop();
       this.mediaRecorder.stream.getTracks().forEach(track => track.stop());
-
       // console.log(this.mediaRecorder.state);
       // console.log("recorder stopped");
     }
@@ -158,4 +152,24 @@ export default class extends Controller {
     this.audio.play().catch(err => console.error('Error playing audio:', err));
   }
 
+  speak() {
+    if('speechSynthesis' in window) {
+      const utterance = new SpeechSynthesisUtterance(this.messageTarget.textContent)
+
+      // Customize voice settings
+      utterance.rate = 1.0  // Speed (0.1 to 10)
+      utterance.pitch = 1.0 // Pitch (0 to 2)
+      utterance.volume = 1.0 // Volume (0 to 1)
+
+      // Optional: Select a specific voice
+      const voices = speechSynthesis.getVoices()
+      // utterance.voice = voices.find(voice => voice.name === 'Eddy (English (United States))')
+
+      speechSynthesis.speak(utterance)
+    }
+  }
+
+  stop() {
+    speechSynthesis.cancel()
+  }
 }

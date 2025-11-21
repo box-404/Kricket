@@ -1,5 +1,5 @@
 <div class="screen-wrapper">
-  <div class="kricket-page">
+  <div class="kricket-page" data-controller="record" data-id="<%= @chat.id %>">
     <!-- Status bar -->
     <div class="status-bar">
       <div class="status-bar__icons">
@@ -8,27 +8,21 @@
         <span class="icon"></span>
       </div>
     </div>
-
-     <!-- Top nav -->
-      <div class="navbar navbar-light navbar-lewagon">
-        <div class="container-fluid navbar-mobile">
-
-          <!-- LEFT: hamburger -->
-          <%= link_to new_chat_path, class: "navbar-toggler" do %>
-            <i class="fa-solid fa-house" style="color: white;"></i>
-          <% end %>
-
-          <!-- CENTER: brand name -->
-          <div class="navbar-title">Kricket</div>
-
-          <!-- RIGHT: icon -->
-          <div class="navbar-right-icon">
-            <i class="fa-regular fa-user" type="button"></i>
-          </div>
-
+    <!-- Top nav -->
+    <div class="navbar navbar-light navbar-lewagon">
+      <div class="container-fluid navbar-mobile">
+        <!-- LEFT: hamburger -->
+        <%= link_to new_chat_path, class: "navbar-toggler" do %>
+          <i class="fa-solid fa-house" style="color: white;"></i>
+        <% end %>
+        <!-- CENTER: brand name -->
+        <div class="navbar-title">Kricket</div>
+        <!-- RIGHT: icon -->
+        <div class="navbar-right-icon">
+          <i class="fa-regular fa-user" type="button"></i>
         </div>
       </div>
-
+    </div>
     <!-- Spiciness slider -->
     <section class="spice">
       <div class="spice__label">Choose spiciness level</div>
@@ -53,13 +47,13 @@
         </div>
       </section>
       <!-- Record Section of the Page  -->
-      <div class="div" data-controller="record" data-id="<%= @chat.id %>">
+      <div class="div" data-id="<%= @chat.id %>">
         <button id="record" data-record-target="record" data-action="click-> record#startRecord">Record</button>
         <%# <button id="snapshot" data-action="click-> record#collectSnapshot">Snapshot</button> %>
         <button id="stop" data-action="click-> record#stopRecord">Stop</button>
       </div>
       <!-- AI message block -->
-      <div id="assistant_message">
+      <div id="assistant_message" data-record-target="message">
         <%= render "messages/message", message: @last_assistant_msg %>
       </div>
       <!-- button block -->
