@@ -24,12 +24,6 @@ export default class extends Controller {
       this.currentDb = dB
     })
 
-    this.dbMeter.on('connect', ()=>{
-      this.loopCheck = setInterval(() => {
-        this.soundHistory.push(Math.abs(Math.round(this.currentDb)))
-        // console.log(this.soundHistory)
-      }, this.dBInterval);
-
       setTimeout(() => {
         this.loopAverage = setInterval(() => {
           const lastFiveSec = this.soundHistory.slice(-1 * (this.silenceDelay / this.dBInterval)).reduce((accumulator,el)=>accumulator + el)
@@ -47,7 +41,7 @@ export default class extends Controller {
           }
         }, this.silenceDelay);
       }, this.silenceDelay);
-    })
+
   }
 
   startRecord() {
