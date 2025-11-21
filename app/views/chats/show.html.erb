@@ -1,26 +1,17 @@
 <div class="screen-wrapper">
   <div class="homepage-layout">
-
-  <!-- Top nav -->
-      <div class="navbar navbar-lewagon">
-        <div class="container-fluid navbar-mobile">
-
-          <!-- LEFT: hamburger -->
-          <%= link_to new_chat_path, class: "navbar-toggler" do %>
-            <i class="fa-solid fa-house" style="color: white;"></i>
-          <% end %>
-
-          <!-- CENTER: brand name -->
-          <div class="navbar-title" style="font-size: 1.6rem;">Kricket</div>
-
-          <!-- RIGHT: icon -->
-          <div class="navbar-right-icon">
-            <i class="fa-regular fa-user" type="button"></i>
-          </div>
-
+    <!-- Top nav -->
+    <div class="navbar navbar-light navbar-lewagon">
+      <div class="container-fluid navbar-mobile">
+        <%= link_to root_path, class: "navbar-toggler" do %>
+          <i class="fa-solid fa-house fa-lg" style="color: white;"></i>
+        <% end %>
+        <div class="navbar-title" style="font-size: 2.6rem; color: #CE4B56;">KRICKET</div>
+        <div class="navbar-right-icon">
+          <i class="fa-solid fa-arrow-right-from-bracket fa-xl" style="color: white;"></i>
         </div>
       </div>
-
+    </div>
     <!-- Spiciness slider -->
     <section class="spice">
       <div class="spice_label">Choose spiciness level</div>
@@ -44,7 +35,6 @@
           </div>
         </div>
       </section>
-
       <!-- Spinner  -->
       <div class="spinner-wrapper ">
         <button class="spinner-button">
@@ -53,17 +43,13 @@
           </div>
         </button>
       </div>
-
       <!-- AI message block -->
       <section class="glass-wrapper">
         <canvas class="glass-blob"></canvas>
-
         <div class="glass-content" id="assistant_message">
           <%= render "messages/message", message: @last_assistant_msg %>
         </div>
       </section>
-
-
       <!-- Record Section of the Page  -->
       <div class="d-flex justify-content-center gap-3 mt-5" data-controller="record" data-id="<%= @chat.id %>">
         <%# <button id="record" data-record-target="record" data-action="click-> record#startRecord">Record</button> %>
@@ -71,8 +57,6 @@
         <%# <button id="snapshot" data-action="click-> record#collectSnapshot">Snapshot</button> %>
         <button id="stop" data-action="click->record#stopRecord" class="btn btn-danger"> Stop </button>
       </div>
-
-
     </div>
     <!-- .kricket-page -->
   </div>
