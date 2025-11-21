@@ -30,6 +30,12 @@ class ChatsController < ApplicationController
     @last_assistant_msg = Message.new if @last_assistant_msg.nil?
   end
 
+  def destroy
+    @chat = Chat.find(params[:id])
+    @chat.destroy
+    redirect_to chats_path, notice: "Chat deleted."
+  end
+
   private
 
   def chat_params
