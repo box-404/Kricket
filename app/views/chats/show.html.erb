@@ -16,7 +16,7 @@
     <section class="spice">
       <div class="spice_label">Choose spiciness level</div>
       <div class="spice_row">
-        <span class="spice_pepper-left">🌶️</span>
+        <span class="spice_pepper-left">❄️</span>
         <%= simple_form_for(@chat, html: {data: {controller: "temperature"}}) do |f| %>
           <input
             name="chat[temperature]"
@@ -30,7 +30,7 @@
             />
           <% end %>
           <div class="spice_pepper-level" data-level="1">
-            <span class="pepper" data-index="1">🔥</span>
+            <span class="pepper" data-index="1" style="font-size: 1.8rem;">🌶️</span>
           </div>
         </div>
       </section>
