@@ -4,7 +4,8 @@ class ChatsController < ApplicationController
   end
 
   def create
-    @chat = Chat.new
+    @chat = Chat.new()
+    @chat.title = "New Chat #{current_user.chats.count + 1}" if @chat.title.nil?
     @chat.user = current_user
     if @chat.save
       redirect_to chat_path(@chat)
