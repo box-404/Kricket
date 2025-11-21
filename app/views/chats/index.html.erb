@@ -14,20 +14,26 @@
     </div>
     <div class="history-list">
       <% @chats.each do |chat| %>
-        <%= link_to chat_path(chat), class: "history-item" do %>
-          <div class="history-item__spice-left">
-            <p class="history-spice" style="font-size: 1rem;">🌶️</p>
-          </div>
-          <div class="history-item__text">
-            <div class="history-item__scroll">
-              <p class="history-title"><%= chat.title %></p>
-              <p class="history-message"><%= chat.summary %></p>
+        <div class="history-item">
+          <!-- FULL CARD CLICK AREA -->
+          <%= link_to chat_path(chat), class: "history-item__body" do %>
+            <div class="history-item__spice-left">
+              <p class="history-spice" style="font-size: 1rem;">🌶️</p>
             </div>
-          </div>
-          <div class="history-item__delete">
+            <div class="history-item__text">
+              <div class="history-item__scroll">
+                <p class="history-title"><%= chat.title %></p>
+                <p class="history-message"><%= chat.summary %></p>
+              </div>
+            </div>
+          <% end %>
+          <!-- DELETE BUTTON -->
+          <%= link_to chat_path(chat),
+          data: { turbo_method: :delete, turbo_confirm: "Delete this chat?" },
+          class: "history-item__delete" do %>
             <i class="fa-regular fa-trash-can" style="font-size: 1.2rem;"></i>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>
