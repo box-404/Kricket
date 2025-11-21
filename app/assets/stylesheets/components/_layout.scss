@@ -23,15 +23,15 @@
   display: flex;
   flex-direction: column;
   padding: 1.2rem 1rem;
-  gap: 2.4rem;           /* spacing between each block */
+  // gap: 2.4rem;           /* spacing between each block */
 }
 
 .go-button {
-  box-shadow: 0 5px 12px rgba(0,0,0,0.35);
+  // box-shadow: 0 5px 12px rgba(0,0,0,0.35);
 }
 
 .mode-toggle {
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  // box-shadow: 0 4px 10px rgba(0,0,0,0.25);
 }
 
 .mode-toggle-wrapper {
@@ -47,7 +47,7 @@
 .kricket-page-history .navbar-title,
 .kricket-page-history .navbar-back i,
 .kricket-page-history .navbar-right-icon i {
-  color: #222;
+  // color: #222;
 }
 
 // .history-item {
